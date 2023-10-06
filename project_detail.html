@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Project Detail</h1>
+    </header>
+    <main id="project-detail">
+        <!-- Project details will be added here dynamically -->
+    </main>
+    <script src="script.js"></script>
+    <script>
+        // Retrieve the project index from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectIndex = urlParams.get("project");
+
+        // Display the project details on the page
+        const projectDetail = document.getElementById("project-detail");
+        if (projectIndex !== null) {
+            const project = projects[parseInt(projectIndex)];
+            const projectCard = createProjectCard(project, parseInt(projectIndex));
+            projectDetail.appendChild(projectCard);
+        }
+    </script>
+</body>
+</html>
